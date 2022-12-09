@@ -1,3 +1,4 @@
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -56,3 +57,4 @@ print("\n Correlation between various years of Fuel Import data: \n")
 print(import_data1.corr())
 print("\n Correlation between various years of GDP data: \n")
 print(gdp_data2.corr())
+
