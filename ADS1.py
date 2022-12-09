@@ -1,4 +1,3 @@
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,9 +11,8 @@ def Read_data1(file_name1):
     data2=data1.set_index('Country').T
     print(data2)
     return data1, data2
-
-import_data1,import_tdata1=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_import1.xlsx")
-gdp_data2,gdp_tdata2=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\gdp.xlsx")
+import_data11,import_tdata11=Read_data2("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_import1.xlsx")
+gdp_data22,gdp_tdata22=Read_data2("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\gdp.xlsx")
 
 print("\n Statistics values of data: \n")
 def Statistical_values(data_name):
@@ -42,7 +40,8 @@ def plot_1(data_name,types):
           
 plot_1(import_tdata1,"line")
 plot_1(gdp_tdata2,"line")
-
+plot_1(import_tdata1,'kde')
+plot_1(gdp_tdata2,'kde')
 
 plt.matshow(import_data1.corr())
 plt.xticks(range(import_data1.select_dtypes(['number']).shape[1]), import_data1.select_dtypes(['number']).columns, fontsize=12, rotation=45)
@@ -57,4 +56,12 @@ print("\n Correlation between various years of Fuel Import data: \n")
 print(import_data1.corr())
 print("\n Correlation between various years of GDP data: \n")
 print(gdp_data2.corr())
+print("\n Correlation of data between Countries: \n")
+
+def Correlation_years(data_name):
+    b=data_name.corr()
+    return b
+
+Correlation_years(import_tdata1)
+Correlation_years(gdp_tdata2)
 
