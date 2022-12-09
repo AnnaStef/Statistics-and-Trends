@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #function for reading the data from 2009 to 2018 for 5 countries.
+
 def Read_data1(file_name1):
     data1=pd.read_excel(file_name1)
     data1=data1.iloc[[12,21,41,71,180],[0,53,54,55,56,57,58,59,60,61,62]]
@@ -12,9 +13,11 @@ def Read_data1(file_name1):
     data2=data1.set_index('Country').T
     print(data2)
     return data1, data2
+
 #read the data using function.
 import_data1,import_tdata1=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_import1.xlsx")
 gdp_data2,gdp_tdata2=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\gdp.xlsx")
+
 #printing the statistical properties of the data using Stastical_values function.
 print("\n Statistics values of data: \n")
 
