@@ -11,8 +11,8 @@ def Read_data1(file_name1):
     data2=data1.set_index('Country').T
     print(data2)
     return data1, data2
-import_data11,import_tdata11=Read_data2("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_import1.xlsx")
-gdp_data22,gdp_tdata22=Read_data2("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\gdp.xlsx")
+import_data1,import_tdata1=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_import1.xlsx")
+gdp_data2,gdp_tdata2=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\gdp.xlsx")
 
 print("\n Statistics values of data: \n")
 def Statistical_values(data_name):
