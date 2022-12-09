@@ -53,6 +53,6 @@ plt.show()
 
    
 print("\n Correlation between various years of Fuel Import data: \n")
-print(import_tdata1.corr())
+print(import_data1.corr())
 print("\n Correlation between various years of GDP data: \n")
-print(gdp_tdata2.corr())
+print(gdp_data2.corr())
