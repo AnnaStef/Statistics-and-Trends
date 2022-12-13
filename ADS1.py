@@ -1,4 +1,3 @@
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -98,4 +97,3 @@ print("\n Exports and GDP of Egypt, Arab Rep. Correlation: \n")
 print(export_tdata3['Egypt, Arab Rep.'].corr(gdp_tdata2['Egypt, Arab Rep.']))
 print("\n Exports and GDP of Netherlands Correlation: \n")
 print(export_tdata3['Netherlands'].corr(gdp_tdata2['Netherlands']))
-
