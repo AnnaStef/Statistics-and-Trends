@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #function for reading the data from 2009 to 2018 for 5 countries.
-def Read_data1(file_name1):
+def read_data1(file_name1):
     data1=pd.read_excel(file_name1)
     data1=data1.iloc[[12,21,41,71,180],[0,53,54,55,56,57,58,59,60,61,62]]
     data1=data1.set_axis(['Country','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018'],axis=1,inplace=False)
@@ -12,12 +12,14 @@ def Read_data1(file_name1):
     data2=data1.set_index('Country').T
     print(data2)
     return data1, data2
-#read the data using function.
-import_data1,import_tdata1=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_import1.xlsx")
-export_data3,export_tdata3=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_export.xlsx")
-gdp_data2,gdp_tdata2=Read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\gdp.xlsx")
 
-def Line_plot(data_name,xlabel,ylabel,title):
+#reading the data using function.
+import_data1,import_tdata1=read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_import1.xlsx")
+export_data3,export_tdata3=read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\fuel_export.xlsx")
+gdp_data2,gdp_tdata2=read_data1("C:\\Users\\shobi\\ADS Asgnmt\\Anna\\gdp.xlsx")
+
+
+def line_plot(data_name,xlabel,ylabel,title):
     import_tdata1.plot(kind='line',label='Country Name')
     plt.xticks(rotation=45)
     plt.xlabel(xlabel)
@@ -26,51 +28,47 @@ def Line_plot(data_name,xlabel,ylabel,title):
     plt.legend(loc='upper right')
     plt.show()
 
-Line_plot(import_tdata1,'Year','Values','Fuel Import')
-Line_plot(export_data3,'Year','Values','Fuel Eport')
-Line_plot(gdp_tdata2,'Year','Values','GDP growth')
-#defining a function for plotting various graphs.
+line_plot(import_tdata1,'Year','Values','Fuel Import')
+line_plot(export_data3,'Year','Values','Fuel Eport')
+line_plot(gdp_tdata2,'Year','Values','GDP growth')
+
 
 def plot_1(data_name,types):
     data_name.plot(kind=types)
     
-#plotting the Kernel density estimate function for the transposed datas.           
+#plotting the Kernel density estimate function for the transposed datas using plot_1 function.           
 plot_1(import_tdata1,'kde') 
 plot_1(export_tdata3,'kde')
 plot_1(gdp_tdata2,'kde')
 
 
-#printing the statistical properties of the data using Stastical_values function.
+#defining and printing the statistical properties of the data using stastical_values function.
 print("\n Statistics values of data: \n")
 
-def Statistical_values(data_name):
+def statistical_values(data_name):
     a=data_name.describe()
     return a
 
-S1=Statistical_values(import_tdata1)
-S2=Statistical_values(gdp_tdata2)
-S3=Statistical_values(export_tdata3)
-print(S1)
-print(S2)
-print(S3)
+s1=statistical_values(import_tdata1)
+s2=statistical_values(gdp_tdata2)
+s3=statistical_values(export_tdata3)
+print(s1)
+print(s2)
+print(s3)
 
-#printing the statistical properties of the data using Stastical_values function.
 print("\n Correlation values of data: \n")
+#defining a function for finding correlation between countries of given data and printing it.
 
-#defining a function for finding correlation between countries of given data.
-
-def Correlation_years(data_name):
+def correlation_years(data_name):
     b=data_name.corr()
     return b
 
-#printing the values of correlation of transposed data.
-
-C1=Correlation_years(import_tdata1)
-C2=Correlation_years(gdp_tdata2)
-C3=Correlation_years(export_tdata3)
-print(C1)
-print(C2)
-print(C3)
+c1=correlation_years(import_tdata1)
+c2=correlation_years(gdp_tdata2)
+c3=correlation_years(export_tdata3)
+print(c1)
+print(c2)
+print(c3)
 
 print('\n Correlation between GDP and Fuel Import \n')
 #printing the correlation between GDP and Fuel Import of various Countries.
